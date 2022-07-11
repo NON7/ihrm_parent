@@ -9,7 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
-
+//实现Serializable的作用，序列化就是保存，反序化就是读取，
+// Serializable的作用是将类的实例持久化保存
 @Entity
 @Table(name="co_company")
 @Data

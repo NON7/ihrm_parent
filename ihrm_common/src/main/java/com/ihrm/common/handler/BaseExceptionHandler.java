@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 自定义的公共异常处理器
  * 1.声明异常处理器
- *
  * 2.对异常统一处理
  */
 @ControllerAdvice

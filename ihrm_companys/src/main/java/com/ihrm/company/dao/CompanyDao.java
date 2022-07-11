@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 
 public interface CompanyDao extends JpaRepository<Company,String>, JpaSpecificationExecutor<Company> {
-    public Company findById(Integer id);
+//    public Company findById(Integer id);
 }

@@ -16,14 +16,14 @@ public class CompanyServiceImpl implements CompanyService {
     @Autowired
     private IdWorker idWorker;
     @Override
-    public void add(Company company) {
+    public Company add(Company company) {
 //        基本属性的设置
         String l = idWorker.nextId()+"";
         company.setId(l);
 //        默认的状态
         company.setAuditState("0");//0：未审核；1：已审核
         company.setState(1);//0：未激活，1：已审核
-        companyDao.save(company);
+        return companyDao.save(company);
     }
 
     /**
@@ -32,11 +32,11 @@ public class CompanyServiceImpl implements CompanyService {
      * @param company
      */
     @Override
-    public void update(Company company) {
+    public Company update(Company company) {
         Company temp = companyDao.findById(company.getId()).get();
         temp.setName(company.getName());
         temp.setCompanyPhone(company.getCompanyPhone());
-        companyDao.save(temp);
+        return companyDao.save(temp);
     }
 
     @Override

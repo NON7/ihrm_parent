@@ -8,9 +8,9 @@ import java.util.List;
 public interface CompanyService {
 
 //    保存企业
-    public void add(Company company);
+    public Company add(Company company);
 //    更新企业
-    public void update(Company company);
+    public Company update(Company company);
 //    3.删除企业
     public void deleteById(String id);
 

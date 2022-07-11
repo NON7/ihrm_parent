@@ -18,34 +18,38 @@ public class CompanyController {
 
 //    保存企业
     @PostMapping
-    public Result save(@RequestBody Company company){
+    public Result save(@RequestBody Company company) throws Exception{
         companyService.add(company);
-        return new Result(ResultCode.SUCCESS);
+        return Result.SUCCESS();
     }
 //    根据id更新企业
     @PutMapping("/{id}")
-    public Result update(@PathVariable String id,@RequestBody Company company){
-        company.setId(id);
+    public Result update(@PathVariable(name="id") String id,@RequestBody Company company) throws Exception{
+        Company one=companyService.findById(id);
+        one.setName((company.getName()));
+        one.setRemarks(company.getRemarks());
+        one.setState(company.getState());
+        one.setAuditState(company.getAuditState());
         companyService.update(company);
-        return new Result(ResultCode.SUCCESS);
+        return Result.SUCCESS();
     }
 //    根据id删除企业
     @DeleteMapping("/{id}")
-    public Result delete(@PathVariable("id") String id){
+    public Result delete(@PathVariable("id") String id) throws Exception{
         companyService.deleteById(id);
         return new Result(ResultCode.SUCCESS);
     }
 
 //    根据id查询企业
     @GetMapping("/{id}")
-    public Result findById(@PathVariable("id") String id){
+    public Result findById(@PathVariable(name="id") String id) throws Exception{
         Company company = companyService.findById(id);
         return new Result(ResultCode.SUCCESS,company);
     }
 
 //    查询全部
     @GetMapping
-    public Result findAll(){
+    public Result findAll() throws Exception {
         List<Company> list = companyService.findAll();
         return new Result(ResultCode.SUCCESS,list);
     }
