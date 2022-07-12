@@ -2,7 +2,7 @@ package com.ihrm.company.conroller;
 
 import com.ihrm.common.entity.Result;
 import com.ihrm.common.entity.ResultCode;
-import com.ihrm.domain.Company;
+import com.ihrm.domain.company.Company;
 import com.ihrm.company.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

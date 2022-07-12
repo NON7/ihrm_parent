@@ -1,4 +1,4 @@
-package com.ihrm.domain;
+package com.ihrm.domain.company;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

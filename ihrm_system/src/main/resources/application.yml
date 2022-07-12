@@ -1,0 +1,12 @@
+server:
+  port: 9002
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ihrm?characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  jpa:
+    database: mysql
+    show-sql: true
+    open-in-view: true

@@ -1,6 +1,6 @@
 package com.ihrm.company.dao;
 
-import com.ihrm.domain.Company;
+import com.ihrm.domain.company.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

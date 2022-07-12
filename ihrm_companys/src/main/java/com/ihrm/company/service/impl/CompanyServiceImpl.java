@@ -3,7 +3,7 @@ package com.ihrm.company.service.impl;
 import com.ihrm.common.utils.IdWorker;
 import com.ihrm.company.dao.CompanyDao;
 import com.ihrm.company.service.CompanyService;
-import com.ihrm.domain.Company;
+import com.ihrm.domain.company.Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

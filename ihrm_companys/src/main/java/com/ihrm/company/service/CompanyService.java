@@ -1,6 +1,6 @@
 package com.ihrm.company.service;
 
-import com.ihrm.domain.Company;
+import com.ihrm.domain.company.Company;
 
 import java.util.List;
 
