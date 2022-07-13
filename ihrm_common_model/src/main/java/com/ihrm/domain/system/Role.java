@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.security.Permission;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,11 +31,14 @@ public class Role implements Serializable {
      */
     private String companyId;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "roles")
     @JsonIgnore
     private Set<User> users=new HashSet<User>(0);//用户与角色 多对多
+
     @JsonIgnore
     @ManyToMany
-    @JoinTable(name="pe_role_permission",joinColumns={@JoinColumn(name="role_id",referencedColumnName="id")},inverseJoinColumns = {@JoinColumn(name="permission_id",referencedColumnName = "id")})
+    @JoinTable(name="pe_role_permission",
+            joinColumns={@JoinColumn(name="role_id",referencedColumnName="id")},
+            inverseJoinColumns = {@JoinColumn(name="permission_id",referencedColumnName = "id")})
     private Set<Permission> permissions=new HashSet<Permission>(0);//角色与模块，多对多
 }

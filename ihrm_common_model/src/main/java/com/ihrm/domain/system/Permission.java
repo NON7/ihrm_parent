@@ -45,6 +45,8 @@ public class Permission implements Serializable {
     /**
      * 可见状态
      */
+    private String envisible;
+
     public Permission(String name,Integer type,String code,String description){
         this.name=name;
         this.type=type;

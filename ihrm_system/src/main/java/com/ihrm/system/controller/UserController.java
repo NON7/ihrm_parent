@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -48,6 +49,20 @@ public class UserController extends BaseController {
         Page<User> searchPage = userService.findSearch(map, page, pagesize);
         PageResult pr = new PageResult(searchPage.getTotalElements(), searchPage.getContent());
         return new Result(ResultCode.SUCCESS,pr);
+
+    }
+    /**
+     * 分配角色
+     */
+    public Result assignRoles(@RequestBody Map<String,Object> map){
+//        1.获取被分配的用户id
+        String userId=(String)map.get("id");
+//        2.获取到角色的id列表
+        List<String> roleIds=(List<String>)map.get("roleIds");
+//        3.调用service完成角色分配
+        userService.assignRoles(userId,roleIds);
+        return new Result(ResultCode.SUCCESS);
+
 
     }
 

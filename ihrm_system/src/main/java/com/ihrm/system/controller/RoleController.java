@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/sys")
 public class RoleController {
@@ -55,5 +58,15 @@ public class RoleController {
         Page<Role> searchPage = roleService.findSearch(companyId, page, pagesize);
         PageResult pr = new PageResult(searchPage.getTotalElements(), searchPage.getContent());
         return new Result(ResultCode.SUCCESS,pr);
+    }
+    @PutMapping("/role/assignPrem")
+    public Result assignPrem(@RequestBody Map<String,Object> map){
+//        1.获取被分配的角色的id
+        String roleId=(String)map.get("id");
+//        2.获取到权限的id列表
+        List<String> permIds=(List<String>)map.get("permIds");
+//        3.调用service完成权限分配
+        roleService.assignPerms(roleId,permIds);
+        return new Result(ResultCode.SUCCESS);
     }
 }
